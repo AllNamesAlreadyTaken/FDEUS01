@@ -1,19 +1,104 @@
-##codebase data-flow map
+# Investigation Notes
 
-This codebase runs a straightforward event pipeline where raw dictionaries are ingested into Event objects using customer_id, normalized to a consistent format, enriched with derived metadata, and exported as JSONL records with a shared schema version, while companion reporting services read the same Event list to produce per-customer counts and value totals; tests validate each stage’s core behavior so the flow remains predictable as the code evolves.
+## #codebase data-flow map
+
+* Stages Copilot identified in order
+<span style="color:red"></span>
+
+* Files Copilot cited for each stage
+<span style="color:red"></span>
+
+* Verification notes after checking src/pipeline, src/services, src/models
+* Did Copilot name every participating file?
+<span style="color:red"></span>
+* Did Copilot correctly classify src/services/reporting.py as a consumer?
+<span style="color:red"></span>
+* Did Copilot mention infra/runtime_defaults.py? If yes/no, why?
+<span style="color:red"></span>
 
 ## Agent discovery pattern
 
-The discovery pattern went across the files in order after running pytest, then identified some renamed  files and directories.  It then recalled pytest to make sure it was correct.
+* File read order observed in Agent Logs
+<span style="color:red"></span>
+
+* Read pattern: concentrated by directory or scattered across directories
+<span style="color:red"></span>
+
+* Evidence of grep, semantic search, or symbol lookups
+<span style="color:red"></span>
+
+* Files Agent edited without being explicitly named
+<span style="color:red"></span>
+
+* Test execution behavior observed (whether, when, response to result)
+<span style="color:red"></span>
 
 ## Audit findings
 
-I was unable to fully embrace audit due to time constraints, but I would naturally chekc the audits for validaty in any codebase audit toggled by the hash command codebase
+* Residual references Copilot missed
+<span style="color:red"></span>
+
+* False positives Copilot reported
+<span style="color:red"></span>
+
+* Miss categories (string literals, dict keys, test data, docstrings, comments)
+<span style="color:red"></span>
+
+* Cold test result after refactor claim (pytest -v)
+<span style="color:red"></span>
 
 ## Self-correction
 
-copilot went in and scanned the full codebase more deeply
+* Original miss selected
+<span style="color:red"></span>
+
+* Prompt form used to provide missing context
+<span style="color:red"></span>
+
+* Whether correction surfaced additional misses
+<span style="color:red"></span>
+
+* Verification result after correction and retest
+<span style="color:red"></span>
 
 ## Summary
 
-codebase mapped the content closely but not exactly.  The refactor added a few changes and files.  I didn't capture the category exactly.
+* How completely did #codebase map the codebase on first ask?
+<span style="color:red"></span>
+
+* How completely did Agent Mode execute the refactor on first try?
+<span style="color:red"></span>
+
+* Which category of references was most likely to be missed, and why?
+<span style="color:red"></span>
+
+## Hidden config search (Optional)
+
+* Files read before locating infra/runtime_defaults.py
+<span style="color:red"></span>
+
+* Signal used to locate value (semantic, import-follow, grep)
+<span style="color:red"></span>
+
+* Incorrect assumptions observed during search
+<span style="color:red"></span>
+
+* What would make this value harder to find?
+<span style="color:red"></span>
+
+## Space-grounded comparison (Optional)
+
+* File-change delta between ungrounded and grounded runs
+<span style="color:red"></span>
+
+* Naming differences between runs
+<span style="color:red"></span>
+
+* Whether explanation referenced spec language (for example billing/canonical identifier)
+<span style="color:red"></span>
+
+* First-pass test outcome in grounded run
+<span style="color:red"></span>
+
+* Dependency map cross-check notes (including infra/runtime_defaults.py edges)
+<span style="color:red"></span>
