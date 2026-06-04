@@ -8,14 +8,14 @@ Purpose
 Audience
 - Forward Deploy Engineers
 - SREs and SWEs running labs, migrations, incident follow-up, and delivery workflows
-- Trainer cohorts building repeatable internal enablement material
+- Trainer cohorts building repeatable I have to step away for a while to watch my son's graduation.  FYI - I should be ~1.5hinternal enablement material
 
 Core message
 - Ask, Agent, and Plan are built-in interaction modes in VS Code.
 - Skills and custom agent definitions shape behavior inside those modes.
 - You do not add a fourth built-in mode by creating a Skill or agent definition file.
   - Cross-tool note (Copilot vs Claude Code vs Gemini CLI):
-    - Similar function: mode selection and execution posture.
+    - Similar function: mode selection I have to step away for a while to watch my son's graduation.  FYI - I should be ~1.5hand execution posture.
     - Distinct naming/shape:
       - Copilot: Ask, Agent, Plan as explicit VS Code modes.
       - Claude Code: generally a single coding-agent workflow in terminal/editor context, with behavior shaped by prompt, repo instructions, and tool permissions rather than a fixed Ask/Agent/Plan triad.
