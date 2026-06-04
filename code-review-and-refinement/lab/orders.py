@@ -6,20 +6,32 @@ inv = Inventory()
 
 
 def process_order(item_name, quantity, coupon_percent=0):
+    if not isinstance(item_name, str) or not item_name.strip():
+        return None
+
+    if not isinstance(quantity, int) or quantity <= 0:
+        return None
+
+    if not isinstance(coupon_percent, (int, float)):
+        return None
+
+    coupon_percent = max(0, min(coupon_percent, 100))
+
     stock = inv.get_stock(item_name)
-    if stock < quantity:
+    if stock is None or stock < quantity:
         return None
 
     base = 9.99
     total = calculate_price(base, quantity)
     total = apply_bulk_discount(total, quantity)
 
-    total = total * 1.07
-
     if coupon_percent > 0:
-        total = calculate_discount(total, coupon_percent)
+        total = total * (1 - (coupon_percent / 100))
 
-    inv.updateStock(item_name, stock - quantity)
+    updated = inv.updateStock(item_name, stock - quantity)
+    if not updated:
+        return None
+
     return format_currency(total)
 
 
